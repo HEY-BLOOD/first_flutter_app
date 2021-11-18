@@ -1,48 +1,51 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
       home: Scaffold(
-        appBar: AppBar(
-          leading: const Icon(Icons.menu),
-          title: const Center(child: Text("First Flutter App")),
-          actions: [
-            InkWell(
-              child: const Icon(Icons.settings),
-              onTap: () {
-                // ignore: avoid_print
-                print("Clicked Setting action.");
-                // do something here.
-              },
+        body: Center(
+          child: Container(
+            alignment: Alignment.topCenter,
+            // margin: EdgeInsets.only(left: 50, right: 10),
+            // margin: EdgeInsets.symmetric(vertical: 240, horizontal: 50),
+            margin: EdgeInsets.all(30),
+            padding: EdgeInsets.all(20),
+            // transform: Matrix4.translationValues(100, -100, 0),
+            height: 350,
+            width: 350,
+            // Cannot provide both a color and a decoration To provide both, use "decoration: BoxDecoration(color: color)".
+            // color: Colors.blue[400],
+            decoration: BoxDecoration(
+                color: Colors.purple,
+                border: Border.all(color: Colors.green, width: 2),
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            child: const Text(
+              "This is Container Widget\n"
+              "margin is all 30\n"
+              "padding is all 20\n"
+              "height and width are 350\n"
+              "green and 2 width border, 20 circular radius\n",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontFamily: "Roboto",
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+                decoration: TextDecoration.underline,
+                decorationColor: Colors.lightBlue,
+                decorationStyle: TextDecorationStyle.double,
+                letterSpacing: 4,
+                wordSpacing: 10,
+              ),
             ),
-          ],
-        ),
-        body: const Center(
-          child: Text(
-            "Hello Flutter!",
-            style: TextStyle(color: Colors.red, fontSize: 24),
           ),
         ),
       ),
