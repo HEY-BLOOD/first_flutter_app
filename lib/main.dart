@@ -16,25 +16,69 @@ class MyApp extends StatelessWidget {
             // alignment: Alignment.center,
             // margin: EdgeInsets.only(left: 50, right: 10),
             // margin: EdgeInsets.symmetric(vertical: 240, horizontal: 50),
-            margin: EdgeInsets.all(30),
-            padding: EdgeInsets.all(20),
+            // margin: EdgeInsets.all(16),
+            // padding: EdgeInsets.all(16),
             // transform: Matrix4.translationValues(100, -100, 0),
-            height: 300,
-            width: 300,
+            // height: 600,
+            // width: 300,
             // Cannot provide both a color and a decoration To provide both, use "decoration: BoxDecoration(color: color)".
             // color: Colors.blue[400],
-            decoration: BoxDecoration(
-              color: Colors.purple,
-              border: Border.all(color: Colors.green, width: 2),
-              borderRadius: BorderRadius.all(Radius.circular(150)),
+            // decoration: BoxDecoration(
+            //   color: Colors.purple,
+            //   border: Border.all(color: Colors.green, width: 2),
+            //   borderRadius: BorderRadius.all(Radius.circular(150)),
+            // ),
+
+            child: ListView.separated(
+              itemCount: 20,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  leading: Image.network(
+                    "https://files.flutter-io.cn/posts/flutter-cn/2019/flutter-1dot12-release/the-flutter-favorite-program.png",
+                  ),
+                  title: Text("Title $index"),
+                  subtitle: Text("Subtitle $index"),
+                  trailing: Icon(Icons.more_vert),
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return Divider(indent: 8, endIndent: 8);
+              },
             ),
 
-            child: ClipOval(
-              child: Image.asset(
-                "assets/images/flutter.png",
-                fit: BoxFit.cover,
+            /* child: ListView.builder(
+              itemCount: 20,
+              itemBuilder: (BuildContext context, int index) {
+                return Center(
+                  child: Text(
+                    "Item $index",
+                    style: Theme.of(context).textTheme.headline1,
+                  ),
+                );
+              },
+            ), */
+
+            /* child: ListView(
+              // padding: EdgeInsets.all(20),
+              // scrollDirection: Axis.horizontal, // default as Axis.vertical
+              // physics: NeverScrollableScrollPhysics(),
+              reverse: true,
+              shrinkWrap: true, // such as wrap_content
+              children: List.generate(
+                20,
+                (index) => Text(
+                  "Item $index",
+                  style: Theme.of(context).textTheme.headline1,
+                ),
               ),
-            ),
+            ), */
+
+            // child: ClipOval(
+            //   child: Image.asset(
+            //     "assets/images/flutter.png",
+            //     fit: BoxFit.cover,
+            //   ),
+            // ),
 
             // child: Image.asset(
             //   "assets/images/flutter.png",
