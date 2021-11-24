@@ -4,6 +4,14 @@ void main() {
   runApp(MyApp());
 }
 
+Widget _colorBox({required Color color}) {
+  return Container(
+    width: 50,
+    height: 50,
+    decoration: BoxDecoration(color: color),
+  );
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -19,17 +27,60 @@ class MyApp extends StatelessWidget {
             // margin: EdgeInsets.all(16),
             // padding: EdgeInsets.all(16),
             // transform: Matrix4.translationValues(100, -100, 0),
-            // height: 600,
-            // width: 300,
+            height: 300,
+            width: 400,
             // Cannot provide both a color and a decoration To provide both, use "decoration: BoxDecoration(color: color)".
             // color: Colors.blue[400],
-            // decoration: BoxDecoration(
-            //   color: Colors.purple,
-            //   border: Border.all(color: Colors.green, width: 2),
-            //   borderRadius: BorderRadius.all(Radius.circular(150)),
-            // ),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              border: Border.all(color: Colors.purple, width: 8),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
 
-            child: SafeArea(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Expanded(flex: 1, child: _colorBox(color: Colors.red)),
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: _colorBox(color: Colors.yellow),
+                ),
+                Spacer(flex: 2),
+                Flexible(flex: 2, child: _colorBox(color: Colors.green)),
+                // _colorBox(color: Colors.white),
+              ],
+            ),
+
+            /* child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _colorBox(color: Colors.red),
+                SizedBox(width: 100, child: _colorBox(color: Colors.yellow)),
+                _colorBox(color: Colors.green),
+                // _colorBox(color: Colors.white),
+              ],
+            ), */
+
+            /* child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                _colorBox(color: Colors.red),
+                SizedBox(height: 100, child: _colorBox(color: Colors.yellow)),
+                _colorBox(color: Colors.green),
+                // _colorBox(color: Colors.white),
+              ],
+            ), */
+
+            /* child: Padding(
+              padding: EdgeInsets.all(20),
+              child: Text("Padding"),
+            ), */
+
+            /* child: SafeArea(
               child: GridView.builder(
                   itemCount: 20,
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -54,7 +105,7 @@ class MyApp extends StatelessWidget {
                       ),
                     );
                   }),
-            ),
+            ), */
 
             /* child: SafeArea(
               child: GridView.count(
