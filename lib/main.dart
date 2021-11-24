@@ -29,7 +29,56 @@ class MyApp extends StatelessWidget {
             //   borderRadius: BorderRadius.all(Radius.circular(150)),
             // ),
 
-            child: ListView.separated(
+            child: SafeArea(
+              child: GridView.builder(
+                  itemCount: 20,
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 260,
+                    mainAxisSpacing: 2,
+                    crossAxisSpacing: 2,
+                  ),
+                  /* gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 2,
+                    crossAxisSpacing: 2,
+                    mainAxisExtent: 150
+                  ),  */
+                  itemBuilder: (context, index) {
+                    return Container(
+                      color: Colors.yellow[300],
+                      child: Center(
+                        child: Text(
+                          'Item $index',
+                          style: Theme.of(context).textTheme.headline5,
+                        ),
+                      ),
+                    );
+                  }),
+            ),
+
+            /* child: SafeArea(
+              child: GridView.count(
+                crossAxisCount: 2,
+                // scrollDirection: Axis.horizontal, // default Axiss.vertical
+                padding: EdgeInsets.all(16),
+                mainAxisSpacing: 8,
+                crossAxisSpacing: 8,
+                childAspectRatio: 2,
+                children: List.generate(20, (index) {
+                  return Container(
+                    color: Colors.yellow[300],
+                    child: Center(
+                      child: Text(
+                        'Item $index',
+                        style: Theme.of(context).textTheme.headline5,
+                      ),
+                    ),
+                  );
+                }),
+              ),
+            ), */
+
+            /* child: ListView.separated(
               itemCount: 20,
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
@@ -44,7 +93,7 @@ class MyApp extends StatelessWidget {
               separatorBuilder: (BuildContext context, int index) {
                 return Divider(indent: 8, endIndent: 8);
               },
-            ),
+            ), */
 
             /* child: ListView.builder(
               itemCount: 20,
