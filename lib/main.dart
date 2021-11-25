@@ -32,12 +32,67 @@ class MyApp extends StatelessWidget {
             // Cannot provide both a color and a decoration To provide both, use "decoration: BoxDecoration(color: color)".
             // color: Colors.blue[400],
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.white,
               border: Border.all(color: Colors.purple, width: 8),
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
 
-            child: Stack(
+            // Wrap Widget Demo
+            child: Wrap(
+              direction: Axis.vertical, // default horizontal
+              spacing: 8.0, // gap between adjacent chips
+              runSpacing: 4.0, // gap between lines
+              alignment: WrapAlignment.end, // main axis
+              runAlignment: WrapAlignment.center, // cross axis
+              children: const <Widget>[
+                Chip(label: Text('Hamilton')),
+                Chip(label: Text('Lafayette')),
+                Chip(label: Text('Mulligan')),
+                Chip(label: Text('Laurens')),
+                Chip(label: Text('Mulligan')),
+                Chip(label: Text('Laurens')),
+              ],
+            ),
+
+            // Card Widget Demo
+            /* child: Card(
+              // elevation: 0,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const ListTile(
+                    leading: Icon(Icons.album),
+                    title: Text('The Enchanted Nightingale'),
+                    subtitle:
+                        Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      TextButton(
+                        child: const Text('BUY TICKETS'),
+                        onPressed: () {/* ... */},
+                      ),
+                      const SizedBox(width: 8),
+                      TextButton(
+                        child: const Text('LISTEN'),
+                        onPressed: () {/* ... */},
+                      ),
+                      const SizedBox(width: 8),
+                    ],
+                  ),
+                ],
+              ),
+            ), */
+
+            // AspectRatio Widget Demo
+            /* child: AspectRatio(
+              aspectRatio: 1 / 2, // width:height
+              child: Container(width: 100, height: 50, color: Colors.green),
+            ), */
+
+            // Stack Widget Demo
+            /* child: Stack(
               alignment: Alignment.topRight, // equals Alignment(1, -1)
               children: [
                 SizedBox(
@@ -61,8 +116,9 @@ class MyApp extends StatelessWidget {
                   child: _colorBox(color: Colors.red),
                 ),
               ],
-            ),
+            ), */
 
+            // Expanded, Flexible, SizedBox, Spacer Widget Demo
             /* child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -79,6 +135,7 @@ class MyApp extends StatelessWidget {
               ],
             ), */
 
+            // Column Widget Demo
             /* child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,6 +147,7 @@ class MyApp extends StatelessWidget {
               ],
             ), */
 
+            // Row Widget Demo
             /* child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -101,11 +159,13 @@ class MyApp extends StatelessWidget {
               ],
             ), */
 
+            // Padding Widget Demo
             /* child: Padding(
               padding: EdgeInsets.all(20),
               child: Text("Padding"),
             ), */
 
+            // GridView.builder() Demo
             /* child: SafeArea(
               child: GridView.builder(
                   itemCount: 20,
@@ -133,6 +193,7 @@ class MyApp extends StatelessWidget {
                   }),
             ), */
 
+            // GridView.count() Demo
             /* child: SafeArea(
               child: GridView.count(
                 crossAxisCount: 2,
@@ -155,6 +216,7 @@ class MyApp extends StatelessWidget {
               ),
             ), */
 
+            // ListView.separated() Demo
             /* child: ListView.separated(
               itemCount: 20,
               itemBuilder: (BuildContext context, int index) {
@@ -172,6 +234,7 @@ class MyApp extends StatelessWidget {
               },
             ), */
 
+            // ListView.builder() Demo
             /* child: ListView.builder(
               itemCount: 20,
               itemBuilder: (BuildContext context, int index) {
@@ -184,6 +247,7 @@ class MyApp extends StatelessWidget {
               },
             ), */
 
+            // ListView Widget Demo
             /* child: ListView(
               // padding: EdgeInsets.all(20),
               // scrollDirection: Axis.horizontal, // default as Axis.vertical
@@ -199,6 +263,7 @@ class MyApp extends StatelessWidget {
               ),
             ), */
 
+            // ClipOval Widget Demo
             // child: ClipOval(
             //   child: Image.asset(
             //     "assets/images/flutter.png",
@@ -206,6 +271,7 @@ class MyApp extends StatelessWidget {
             //   ),
             // ),
 
+            // Image.asset() Demo
             // child: Image.asset(
             //   "assets/images/flutter.png",
             //   alignment: Alignment.center,
@@ -215,6 +281,7 @@ class MyApp extends StatelessWidget {
             //   repeat: ImageRepeat.repeat,
             // ),
 
+            // Image.network() Demo
             // child: Image.network(
             //   "https://images.frandroid.com/wp-content/uploads/2018/09/flutter.png",
             //   alignment: Alignment.center,
@@ -224,7 +291,7 @@ class MyApp extends StatelessWidget {
             //   repeat: ImageRepeat.repeat,
             // ),
 
-            //  Container Widget & Text Widget
+            //  Container, Text Widget Demo
             // child: const Text(
             //   "This is Container Widget\n"
             //   "margin is all 30\n"
