@@ -27,18 +27,20 @@ class MyApp extends StatelessWidget {
             // margin: EdgeInsets.all(16),
             // padding: EdgeInsets.all(16),
             // transform: Matrix4.translationValues(100, -100, 0),
-            height: 300,
-            width: 400,
+            // height: 300,
+            // width: 400,
             // Cannot provide both a color and a decoration To provide both, use "decoration: BoxDecoration(color: color)".
             // color: Colors.blue[400],
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(color: Colors.purple, width: 8),
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-            ),
+            // decoration: BoxDecoration(
+            //   color: Colors.white,
+            //   border: Border.all(color: Colors.purple, width: 8),
+            //   borderRadius: BorderRadius.all(Radius.circular(20)),
+            // ),
+
+            child: MyStatefulWidget(),
 
             // Wrap Widget Demo
-            child: Wrap(
+            /* child: Wrap(
               direction: Axis.vertical, // default horizontal
               spacing: 8.0, // gap between adjacent chips
               runSpacing: 4.0, // gap between lines
@@ -52,7 +54,7 @@ class MyApp extends StatelessWidget {
                 Chip(label: Text('Mulligan')),
                 Chip(label: Text('Laurens')),
               ],
-            ),
+            ), */
 
             // Card Widget Demo
             /* child: Card(
@@ -313,6 +315,60 @@ class MyApp extends StatelessWidget {
             // ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  _MyStatefulWidgetState createState() {
+    print("call createState()");
+    return _MyStatefulWidgetState();
+  }
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int count = 0;
+
+  @override
+  void initState() {
+    print("call initState()");
+    super.initState();
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    print("call setState()");
+    super.setState(fn);
+  }
+
+  @override
+  void dispose() {
+    print("call dispose()");
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print("call build()");
+    return Container(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text("You have clicked the button $count times."),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                count++;
+                print("variable count change to $count");
+              });
+            },
+            child: Text("Increase"),
+          ),
+        ],
       ),
     );
   }
