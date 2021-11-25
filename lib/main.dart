@@ -37,7 +37,33 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
 
-            child: Row(
+            child: Stack(
+              alignment: Alignment.topRight, // equals Alignment(1, -1)
+              children: [
+                SizedBox(
+                  width: 150,
+                  height: 150,
+                  child: _colorBox(color: Colors.green),
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: SizedBox(
+                    width: 100,
+                    height: 100,
+                    child: _colorBox(color: Colors.yellow),
+                  ),
+                ),
+                Positioned(
+                  height: 100,
+                  width: 70,
+                  left: 30,
+                  top: 100,
+                  child: _colorBox(color: Colors.red),
+                ),
+              ],
+            ),
+
+            /* child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -51,7 +77,7 @@ class MyApp extends StatelessWidget {
                 Flexible(flex: 2, child: _colorBox(color: Colors.green)),
                 // _colorBox(color: Colors.white),
               ],
-            ),
+            ), */
 
             /* child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
