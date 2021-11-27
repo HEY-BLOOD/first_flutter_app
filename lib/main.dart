@@ -1,8 +1,8 @@
-import 'package:first_app/ex_bottom_nav_bar.dart';
+import 'package:first_app/ex_page_routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyBottomNavBarApp());
+  runApp(MyPageRouteApp());
 }
 
 class MyApp extends StatelessWidget {
