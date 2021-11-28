@@ -7,9 +7,31 @@ class MyPageRouteApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // the first way to navigate page and pass arguments
+      /* onGenerateRoute: (settings) {
+        if (settings.name == '/second') {
+          final arg = settings.arguments;
+          return _buildPageRoute(arg);
+        }
+      }, */
+      routes: {
+        '/first': (context) => FirstPage(),
+        '/second': (context) => SecondPage(),
+      },
       home: FirstPage(),
     );
   }
+}
+
+Route _buildPageRoute(Object? arg) {
+  return PageRouteBuilder(
+    // pass variable arg to SecondPage as title
+    pageBuilder: (c, a1, a2) => SecondPage(title: arg),
+    transitionsBuilder: (c, a1, a2, child) =>
+        ScaleTransition(scale: a1, child: child),
+    // FadeTransition(opacity: a1, child: child),
+    transitionDuration: Duration(seconds: 1),
+  );
 }
 
 class FirstPage extends StatelessWidget {
@@ -32,7 +54,12 @@ class FirstPage extends StatelessWidget {
             // 2. use a Material style page route
             // MaterialPageRoute(builder: (context) => SecondPage()),
             // 3. use custom page route
-            Navigator.of(context).push(_buildPageRoute()),
+            // Navigator.of(context).push(_buildPageRoute()),
+
+            // use named page route
+            Navigator.pushNamed(context, '/second',
+                //  pass arguments to second page
+                arguments: "args of page"),
           },
         ),
       ),
@@ -41,13 +68,17 @@ class FirstPage extends StatelessWidget {
 }
 
 class SecondPage extends StatelessWidget {
-  const SecondPage({Key? key}) : super(key: key);
+  final title;
+
+  const SecondPage({Key? key, this.title = 'Second Page'}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final arg = ModalRoute.of(context)!.settings.arguments;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("Second Page"),
+        title: Text(arg as String),
       ),
       body: Center(
         child: ElevatedButton(
@@ -61,14 +92,4 @@ class SecondPage extends StatelessWidget {
       ),
     );
   }
-}
-
-Route _buildPageRoute() {
-  return PageRouteBuilder(
-    pageBuilder: (c, a1, a2) => SecondPage(),
-    transitionsBuilder: (c, a1, a2, child) =>
-        ScaleTransition(scale: a1, child: child),
-    // FadeTransition(opacity: a1, child: child),
-    transitionDuration: Duration(seconds: 1),
-  );
 }
