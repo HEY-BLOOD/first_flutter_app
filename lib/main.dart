@@ -1,8 +1,8 @@
-import 'package:first_app/ex_silver_app_bar.dart';
+import 'package:first_app/ex_tabs.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MySilverAppBarApp());
+  runApp(MyTabBarAppTwo());
 }
 
 
