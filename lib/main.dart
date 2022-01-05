@@ -1,8 +1,8 @@
-import 'package:first_app/ex_tabs.dart';
+import 'package:first_app/ex_drawer.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyTabBarAppTwo());
+  runApp(MyDrawerApp());
 }
 
 
