@@ -1,8 +1,8 @@
-import 'package:first_app/ex_drawer.dart';
+import 'package:first_app/ex_buttons.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyDrawerApp());
+  runApp(MyButtonApp());
 }
 
 
