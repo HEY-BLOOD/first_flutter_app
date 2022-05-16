@@ -1,10 +1,9 @@
-import 'package:first_app/ex_buttons.dart';
+import 'package:first_app/ex_floating_action_button.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyButtonApp());
+  runApp(MyFloatingActionButtonApp());
 }
-
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
